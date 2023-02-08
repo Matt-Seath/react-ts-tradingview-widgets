@@ -1,14 +1,12 @@
 import React from "react";
 import {
   ColorTheme,
-  CopyrightStyles,
   Locales,
   Studies,
   Timezone,
   WidgetFeatures,
 } from "../index";
 import { createId } from "../utils";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type AdvancedRealTimeChartProps = {
@@ -54,8 +52,6 @@ export type AdvancedRealTimeChartProps = {
 
   container_id?: string;
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
@@ -88,8 +84,6 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
   disabled_features = undefined,
   enabled_features = undefined,
   container_id = `tradingview_${createId(5)}`,
-
-  copyrightStyles,
 
   ...props
 }) => {
@@ -133,11 +127,6 @@ const AdvancedRealTimeChart: React.FC<AdvancedRealTimeChartProps> = ({
         containerId={container_id}
         type="Widget"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol}`}
-        spanText={`${symbol} Chart`}
-      />
     </div>
   );
 };

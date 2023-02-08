@@ -45,7 +45,6 @@ export type { TechnicalAnalysisProps } from "./components";
 export type { TickerProps, TickerSymbol, TickerSymbols } from "./components";
 export type { TickerTapeProps, TickerTapeSymbol } from "./components";
 export type { TimelineProps } from "./components";
-export type { CopyrightProps } from "./components";
 
 export type ColorTheme = "light" | "dark";
 
@@ -282,11 +281,7 @@ export type Studies =
   | "WilliamsFractal@tv-basicstudies"
   | "ZigZag@tv-basicstudies";
 
-export type CopyrightStyles = {
-  parent?: React.CSSProperties;
-  link?: React.CSSProperties;
-  span?: React.CSSProperties;
-};
+
 
 export type WidgetFeatures =
   | "header_widget"
