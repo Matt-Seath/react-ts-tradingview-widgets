@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, Locales } from "../index";
 import Widget from "./Widget";
 
 type DefaultColumnForexOrCrypto =
@@ -101,8 +100,6 @@ export type ScreenerProps = {
   largeChartUrl?: string;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 } & ConditionalScreenerProps;
 
 const Screener: React.FC<ScreenerProps> = ({
@@ -117,7 +114,6 @@ const Screener: React.FC<ScreenerProps> = ({
   locale = "en",
   isTransparent = false,
   largeChartUrl = undefined,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -138,11 +134,6 @@ const Screener: React.FC<ScreenerProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-screener.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/forex-screener/`}
-        spanText={`Forex Screener`}
-      />
     </div>
   );
 };

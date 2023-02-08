@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, DateRange, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, DateRange, Locales } from "../index";
 import Widget from "./Widget";
 
 export type MiniChartProps = {
@@ -19,7 +18,6 @@ export type MiniChartProps = {
 
   children?: never;
 
-  copyrightStyles?: CopyrightStyles;
 };
 
 const MiniChart: React.FC<MiniChartProps> = ({
@@ -35,7 +33,6 @@ const MiniChart: React.FC<MiniChartProps> = ({
   isTransparent = false,
   autosize = false,
   largeChartUrl = undefined,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -57,11 +54,6 @@ const MiniChart: React.FC<MiniChartProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol}/`}
-        spanText={`${symbol} Rates`}
-      />
     </div>
   );
 };

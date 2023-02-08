@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, DateRange, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, DateRange, Locales } from "../index";
 import Widget from "./Widget";
 
 export type MarketOverviewSymbol = {
@@ -38,8 +37,6 @@ export type MarketOverviewProps = {
   tabs?: MarketOverviewTab[];
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const defaultTabs: MarketOverviewTab[] = [
@@ -181,7 +178,6 @@ const MarketOverview: React.FC<MarketOverviewProps> = ({
   belowLineFillColorFallingBottom = "rgba(41, 98, 255, 0)",
   symbolActiveColor = "rgba(33, 150, 243, 0.12)",
   tabs = defaultTabs,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -214,11 +210,6 @@ const MarketOverview: React.FC<MarketOverviewProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        spanText={`Financial Markets`}
-        href="https://www.tradingview.com/markets/"
-      />
     </div>
   );
 };

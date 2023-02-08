@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, DateRange, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, DateRange, Locales } from "../index";
 import Widget from "./Widget";
 
 export type StockMarketProps = {
@@ -60,8 +59,6 @@ export type StockMarketProps = {
   symbolActiveColor?: string;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const StockMarket: React.FC<StockMarketProps> = ({
@@ -86,7 +83,6 @@ const StockMarket: React.FC<StockMarketProps> = ({
   belowLineFillColorGrowingBottom = "rgba(41, 98, 255, 0)",
   belowLineFillColorFallingBottom = "rgba(41, 98, 255, 0)",
   symbolActiveColor = "rgba(33, 150, 243, 0.12)",
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -118,11 +114,6 @@ const StockMarket: React.FC<StockMarketProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/markets/stocks-usa/`}
-        spanText={`Stock market Today`}
-      />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, Currencies, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, Currencies, Locales } from "../index";
 import Widget from "./Widget";
 
 export type ForexCrossRatesProps = {
@@ -15,7 +14,6 @@ export type ForexCrossRatesProps = {
 
   children?: never;
 
-  copyrightStyles?: CopyrightStyles;
 };
 
 const defaultCurrencies: Currencies[] = [
@@ -39,7 +37,6 @@ const ForexCrossRates: React.FC<ForexCrossRatesProps> = ({
   colorTheme = "light",
   locale = "en",
   largeChartUrl = undefined,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -57,11 +54,6 @@ const ForexCrossRates: React.FC<ForexCrossRatesProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/markets/currencies/forex-cross-rates/`}
-        spanText={`Exchange Rates`}
-      />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, Locales } from "../index";
 import Widget from "./Widget";
 
 export type CryptoCurrencyMarketProps = {
@@ -19,8 +18,6 @@ export type CryptoCurrencyMarketProps = {
   isTransparent?: boolean;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const CryptoCurrencyMarket: React.FC<CryptoCurrencyMarketProps> = ({
@@ -33,7 +30,6 @@ const CryptoCurrencyMarket: React.FC<CryptoCurrencyMarketProps> = ({
   colorTheme = "light",
   locale = "en",
   isTransparent = false,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -52,11 +48,6 @@ const CryptoCurrencyMarket: React.FC<CryptoCurrencyMarketProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-screener.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/markets/cryptocurrencies/prices-all/`}
-        spanText={`Cryptocurrency Markets`}
-      />
     </div>
   );
 };

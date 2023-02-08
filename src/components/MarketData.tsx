@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, Locales } from "../index";
 import Widget from "./Widget";
 
 export interface MarketDataSymbol {
@@ -26,8 +25,6 @@ export interface MarketDataProps {
   largeChartUrl?: string;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 }
 
 const defaultSymbolGroup = [
@@ -157,7 +154,6 @@ const MarketData: React.FC<MarketDataProps> = ({
   isTransparent = false,
   locale = "en",
   largeChartUrl = undefined,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -176,11 +172,6 @@ const MarketData: React.FC<MarketDataProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        spanText={`Financial Markets`}
-        href="https://www.tradingview.com/markets/"
-      />
     </div>
   );
 };

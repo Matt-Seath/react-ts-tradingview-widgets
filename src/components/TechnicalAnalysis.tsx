@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, Locales } from "../index";
 import Widget from "./Widget";
 
 export type TechnicalAnalysisProps = {
@@ -26,8 +25,6 @@ export type TechnicalAnalysisProps = {
   largeChartUrl?: string;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({
@@ -41,7 +38,6 @@ const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({
   locale = "en",
   colorTheme = "light",
   largeChartUrl = undefined,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -61,14 +57,6 @@ const TechnicalAnalysis: React.FC<TechnicalAnalysisProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol.replace(
-          ":",
-          "-"
-        )}/technicals/`}
-        spanText={`Technical Analysis for ${symbol}`}
-      />
     </div>
   );
 };

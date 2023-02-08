@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, CopyrightStyles, DisplayMode, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, DisplayMode, Locales } from "../index";
 import Widget from "./Widget";
 
 export type FundamentalDataProps = {
@@ -15,8 +14,6 @@ export type FundamentalDataProps = {
   locale?: Locales;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const FundamentalData: React.FC<FundamentalDataProps> = ({
@@ -29,7 +26,6 @@ const FundamentalData: React.FC<FundamentalDataProps> = ({
   height = 830,
   autosize = false,
   locale = "en",
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -48,14 +44,6 @@ const FundamentalData: React.FC<FundamentalDataProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-financials.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol.replace(
-          ":",
-          "-"
-        )}/financials-overview/`}
-        spanText={`${symbol} Fundamental Data`}
-      />
     </div>
   );
 };

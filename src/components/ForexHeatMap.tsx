@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, Currencies, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, Currencies, Locales } from "../index";
 import Widget from "./Widget";
 
 export type ForexHeatMapProps = {
@@ -14,8 +13,6 @@ export type ForexHeatMapProps = {
   largeChartUrl?: string;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const defaultCurrencies: Currencies[] = [
@@ -39,7 +36,6 @@ const ForexHeatMap: React.FC<ForexHeatMapProps> = ({
   colorTheme = "light",
   locale = "en",
   largeChartUrl = undefined,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -57,11 +53,6 @@ const ForexHeatMap: React.FC<ForexHeatMapProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/markets/currencies/forex-heat-map/`}
-        spanText={`Forex Heat Map`}
-      />
     </div>
   );
 };

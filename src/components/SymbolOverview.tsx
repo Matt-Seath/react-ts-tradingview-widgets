@@ -2,14 +2,12 @@ import React from "react";
 import {
   ChartType,
   ColorTheme,
-  CopyrightStyles,
   DateFormat,
   Locales,
   ScaleMode,
   ScalePosition,
 } from "../index";
 import { createId } from "../utils";
-import Copyright from "./Copyright";
 import Widget from "./Widget";
 
 export type SymbolOverviewProps = {
@@ -84,7 +82,6 @@ export type SymbolOverviewProps = {
 
   children?: never;
 
-  copyrightStyles?: CopyrightStyles;
 };
 
 const defaultSymbols = [
@@ -140,7 +137,6 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
 
   autosize = false,
   container_id = `tradingview_${createId(5)}`,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -195,11 +191,6 @@ const SymbolOverview: React.FC<SymbolOverviewProps> = ({
         containerId={container_id}
         type="MediumWidget"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbols[0][1]}`}
-        spanText={`${symbols[0][1]}`}
-      />
     </div>
   );
 };

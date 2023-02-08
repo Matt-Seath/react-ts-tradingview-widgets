@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, Locales } from "../index";
 import Widget from "./Widget";
 
 export type SingleTickerProps = {
@@ -13,8 +12,6 @@ export type SingleTickerProps = {
   largeChartUrl?: string;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const SingleTicker: React.FC<SingleTickerProps> = ({
@@ -25,7 +22,6 @@ const SingleTicker: React.FC<SingleTickerProps> = ({
   isTransparent = false,
   locale = "en",
   largeChartUrl = undefined,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -42,11 +38,6 @@ const SingleTicker: React.FC<SingleTickerProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol}/`}
-        spanText={`${symbol} Rates`}
-      />
     </div>
   );
 };

@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  ColorTheme,
-  CopyrightStyles,
-  DisplayMode,
-  Locales,
-  Market,
-} from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, DisplayMode, Locales, Market } from "../index";
 import Widget from "./Widget";
 
 type ConditionalTimelineProps =
@@ -33,8 +26,6 @@ export type TimelineProps = {
   largeChartUrl?: string;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 } & ConditionalTimelineProps;
 
 const Timeline: React.FC<TimelineProps> = ({
@@ -47,7 +38,6 @@ const Timeline: React.FC<TimelineProps> = ({
   autosize = false,
   locale = "en",
   largeChartUrl = undefined,
-  copyrightStyles,
   symbol = "BTCUSD",
   market = "crypto",
   ...props
@@ -113,11 +103,6 @@ const Timeline: React.FC<TimelineProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/${href}`}
-        spanText={spanText}
-      />
     </div>
   );
 };

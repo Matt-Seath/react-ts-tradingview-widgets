@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, Locales } from "../index";
 import Widget from "./Widget";
 
 export type CompanyProfileProps = {
@@ -14,8 +13,6 @@ export type CompanyProfileProps = {
   largeChartUrl?: string;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const CompanyProfile: React.FC<CompanyProfileProps> = ({
@@ -27,7 +24,6 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({
   isTransparent = false,
   locale = "en",
   largeChartUrl = undefined,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -45,11 +41,6 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol}/`}
-        spanText={`${symbol} Profile`}
-      />
     </div>
   );
 };

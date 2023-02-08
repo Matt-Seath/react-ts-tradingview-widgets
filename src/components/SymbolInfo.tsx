@@ -1,6 +1,5 @@
 import React from "react";
-import { ColorTheme, CopyrightStyles, Locales } from "../index";
-import Copyright from "./Copyright";
+import { ColorTheme, Locales } from "../index";
 import Widget from "./Widget";
 
 export type SymbolInfoProps = {
@@ -13,8 +12,6 @@ export type SymbolInfoProps = {
   largeChartUrl?: string;
 
   children?: never;
-
-  copyrightStyles?: CopyrightStyles;
 };
 
 const SymbolInfo: React.FC<SymbolInfoProps> = ({
@@ -25,7 +22,6 @@ const SymbolInfo: React.FC<SymbolInfoProps> = ({
   colorTheme = "light",
   isTransparent = false,
   largeChartUrl = undefined,
-  copyrightStyles,
   ...props
 }) => {
   return (
@@ -42,11 +38,6 @@ const SymbolInfo: React.FC<SymbolInfoProps> = ({
         }}
         scriptSRC="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
       ></Widget>
-      <Copyright
-        copyrightStyles={copyrightStyles}
-        href={`https://www.tradingview.com/symbols/${symbol}/`}
-        spanText={`${symbol} Price Today`}
-      />
     </div>
   );
 };
